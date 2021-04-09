@@ -1,103 +1,49 @@
-import math
+with open('inputs/22 - 1.txt', 'r') as f: #open the file
+    cards1 = list(map(int,f.readlines()))
 
-from collections import deque
+with open('inputs/22 - 2.txt', 'r') as f:
+    cards2 = list(map(int, f.readlines()))
 
-def nTermGeometricSequence(a, r, n, mod=0):
-#    print(mod)
-    if mod == 0:
-        mult = pow(r, (n-1))
-    else:
-        mult = 1 - pow(r, n, mod)
-        mult2 = pow(1-r, mod - 2, mod)
-        mult *= mult2
-    term = a * mult
+#cards1 = [9, 2, 6, 3, 1]
+#cards2 = [5, 8, 4, 7, 10]
 
-    return term
+def play(cards1, cards2):
+    seen1 = set()
+    seen2 = set()
+    while len(cards1) > 0 and len(cards2) > 0:
+        t1 = tuple(cards1)
+        t2 = tuple(cards2)
+        if t1 in seen1 or t2 in seen2: return True
+        seen1.add(t1)
+        seen2.add(t2)
+        a = cards1.pop(0)
+        b = cards2.pop(0)
+        if len(cards1) >= a and len(cards2) >= b:
+            winner = play(cards1[:a], cards2[:b])
+        else:
+            winner = a > b
 
-def lcm(a, b):
-    """Compute the lowest common multiple of a and b"""
-    return a * b / math.gcd(a, b)
+        if winner:
+            cards1 += [a,b]
+        else:
+            cards2 += [b,a]
+    return len(cards1) > len(cards2)
 
-def egcd(a, b):
-    if a == 0:
-        return (b, 0, 1)
-    else:
-        g, y, x = egcd(b % a, a)
-        return (g, x - (b//a)*y, y)
+def score(cards):
+    cards = cards[::-1]
+    tot = 0
+    for n in range(len(cards)):
+        tot += cards[n] * (n+1)
+    return tot
 
-def modinv(a,m):
-    g,x,y = egcd(a,m)
-    if g != 1:
-        raise Exception("Modulo Inverse does not exist for", a, "%", m)
-    else:
-        return x % m
+win = play(cards1, cards2)
+print(cards1, cards2)
 
-class Deck:
+if win:
+    print(score(cards1))
+else:
+    print(score(cards2))
 
-    def __init__(self,n):
-        self.diff = 1
-        self.start = 0
-        self.length = n
 
-    def dealToNewStack(self):
-        self.diff *= -1
-        self.start += self.diff
 
-    def cut(self, n):
-        new = self.getCardAt(n)
-        self.start = new
 
-    def dealWithIncrement(self, n):
-        a = modinv(n, self.length)
-        self.diff *= a
-        self.diff = self.diff % self.length
-
-    def getCardAt(self, n):
-        card = self.start + (self.diff * n)
-        card = card % self.length
-        return card
-
-    def printDeck(self):
-        for i in range(self.length):
-            print(self.getCardAt(i), end=" ")
-
-    def setValues(self, start, diff):
-        self.start = start
-        self.diff = diff
-
-with open("input/22.txt") as f:
-    ins = f.readlines()
-
-numCards = 119315717514047
-iterations = 101741582076661
-
-deck = Deck(numCards)
-
-lastDiff = 1
-lastStart = 0
-from time import *
-
-for item in ins:
-    item = item.replace("\n", "").split()
-    if item[-1] == "stack":
-        deck.dealToNewStack()
-    elif item[0] == "cut":
-        cut = int(item[1])
-        deck.cut(cut)
-    elif item[0] == "deal":
-        inc = int(item[-1])
-        deck.dealWithIncrement(inc)
-
-start_diff = deck.start
-diff_mult = deck.diff
-diff = deck.diff
-start = deck.start
-
-#iterations = 2
-
-finalDiff = pow(diff_mult, iterations, numCards)
-# Geometric series
-finalStart = nTermGeometricSequence(start_diff, diff_mult, iterations, numCards)
-
-deck.setValues(finalStart, finalDiff)
-print(deck.getCardAt(2020))
