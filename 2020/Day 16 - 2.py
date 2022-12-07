@@ -5,7 +5,7 @@ with open('inputs/16 - 2.txt', 'r') as f: #open the file
 
 ranges = []
 names = []
-myTicket = list(map(int, "137,149,139,127,83,61,89,53,73,67,131,113,109,101,71,59,103,97,107,79".split(",")))
+myTicket = list(map(int, "61,151,59,101,173,71,103,167,127,157,137,73,181,97,179,149,131,139,67,53".split(",")))
 
 def inRange(n,r):
     if n > r[1]: return False

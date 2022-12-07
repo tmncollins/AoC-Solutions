@@ -1,4 +1,4 @@
-c = list(map(int, list("364297581")))
+c = list(map(int, list("193467258")))
 #cups = list(map(int, list("389125467")))
 
 cups = dict()

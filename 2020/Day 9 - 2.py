@@ -1,4 +1,4 @@
-t = 373803594
+t = 14144619
 with open('inputs/9.txt', 'r') as f: #open the file
     contents = list(map(int, f.readlines()))
 
