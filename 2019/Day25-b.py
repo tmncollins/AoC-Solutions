@@ -32,7 +32,14 @@ south
 east
 take polygon
 north
+drop mug
+drop polygon
+drop klein bottle
+drop tambourine
+east
+-
 """)
+
 
 inp = inpuut.copy()
 outputted = False
@@ -41,49 +48,23 @@ o = ""
 output = 0
 c = 0
 
-items = ["jam", "mug", "easter egg", "asterisk", "klein bottle", "tambourine", "cake", "polygon"]
-
-from itertools import combinations as it
-all_combs = []
-for i in range(len(items) - 1):all_combs += list(it(items, i+1))
-print(all_combs[144])
-
-counter = 0
-for combs in all_combs:
-    computer = Intcode(data.copy())
-
-    inp = inpuut.copy()
-    for item in list(combs):
-        inp += "drop " + item + "\n"
-    inp += "east" + "\n"
-    inp += "inv" + "\n"
-    outputted = False
-    nextInp = None
-    o = ""
-    output = 0
-    c = 0
-
-#    print(inp)
-    nextInp = inp.pop(0)
-    while not computer.isTerminated():
-        try:
-            if output == "inp": nextInp = inp.pop(0)
-        except:
-            break
-        if output == "inp":
-            output = computer.nextIO(ord(nextInp))
-        else:
-            output = computer.nextIO(ord(nextInp))
-        if output != "inp":
-            output = int(output)
-            o += chr(output)
-        if not outputted and "Command?" in o:
-            outputted = True
-        if "santa" in o.lower(): break
-
-    if "lighter" not in o.lower() and "heavier" not in o.lower(): print(o)
-    if counter == 0: print(o)
-    else:print(counter)
-    counter += 1
-
+print(inp)
+nextInp = inp.pop(0)
+computer = Intcode(data)
+while not computer.isTerminated():
+    try:
+        if output == "inp": nextInp = inp.pop(0)
+    except:
+        break
+    if output == "inp":
+        output = computer.nextIO(ord(nextInp))
+    else:
+        output = computer.nextIO(ord(nextInp))
+    if output != "inp":
+        output = int(output)
+        print(chr(output), end="")
+        o += chr(output)
+    if not outputted and "Command?" in o:
+        outputted = True
+        o = ""
 
