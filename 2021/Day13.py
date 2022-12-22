@@ -1,4 +1,4 @@
-data = open("Day13.txt").read().split("\n")
+data = open("inputs/Day13.txt").read().split("\n")
 
 folds = []
 pts = set()

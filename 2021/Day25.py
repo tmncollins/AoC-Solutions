@@ -1,4 +1,4 @@
-f = open("Day25.txt").read().split("\n")
+f = open("inputs/Day25.txt").read().split("\n")
 
 sea = [list(f[i]) for i in range(len(f))]
 

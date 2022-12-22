@@ -1,4 +1,4 @@
-with open("Day17.txt", "r") as f:
+with open("inputs/Day17.txt", "r") as f:
     all_data = f.read().replace("\n", "")
 
 all_data = all_data.split()

@@ -1,5 +1,5 @@
 
-data = open("Day11.txt").read().split("\n")
+data = open("inputs/Day11.txt").read().split("\n")
 octo = []
 dirs = [(-1, -1), (0, -1), (1, -1), (1, 0), (-1, 0), (1, 1), (0, 1), (-1, 1)]
 flashes = 0

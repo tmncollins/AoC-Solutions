@@ -6,7 +6,7 @@ R = 2
 
 part2 = True
 
-f = open("Day23.txt").read().split("\n")
+f = open("inputs/Day23.txt").read().split("\n")
 if part2:
     R = 4
     f.insert(3,"  #D#C#B#A#  ")

@@ -1,6 +1,6 @@
 from _collections import defaultdict
 
-data = open("Day14.txt").read().split("\n")
+data = open("inputs/Day14.txt").read().split("\n")
 alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 p = data[0]

@@ -1,4 +1,4 @@
-f = open("Day2.txt")
+f = open("inputs/Day2.txt")
 data = f.read().split("\n")
 
 d, h = 0, 0

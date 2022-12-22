@@ -1,4 +1,4 @@
-f = open("Day7.txt")
+f = open("inputs/Day7.txt")
 data = f.read().split("\n")
 crabs = list(map(int, data[0].split(",")))
 a = min(crabs)

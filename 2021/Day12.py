@@ -1,6 +1,6 @@
 from _collections import defaultdict, deque
 
-data = open("Day12.txt").read().split("\n")
+data = open("inputs/Day12.txt").read().split("\n")
 lower = "abcdefghijklmnopqrstuvwxyz"
 lower = set(lower)
 lower.add("start")

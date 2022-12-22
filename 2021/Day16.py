@@ -1,4 +1,4 @@
-data = open("Day16.txt").read().replace("\n", "")
+data = open("inputs/Day16.txt").read().replace("\n", "")
 
 code = ""
 version_sum = 0
@@ -6,6 +6,7 @@ version_sum = 0
 h_to_b = {"0":"0000", "1":"0001", "2":"0010", "3":"0011", "4":"0100",
         "5":"0101", "6":"0110", "7":"0111", "8":"1000", "9":"1001",
         "A":"1010", "B":"1011", "C":"1100", "D":"1101", "E":"1110", "F":"1111"}
+
 
 def to_bin(data):
     code = ""
@@ -59,7 +60,6 @@ class Packet:
 
         return string + ")"
 
-
     def __str__(self):
         string = "<Packet: Version: " + str(self.version) + " ; Type: " + str(self.type) + " ; Data: ["
         for d in self.data:
@@ -99,20 +99,13 @@ class Packet:
             return 1 if int(self.data[0]) == int(self.data[1]) else 0
 
 
-def parse_packets_1(num):
+def parse_packets_1(NUM, output=""):
     global ptr, version_sum
 
-#    print(num)
-
     packets = []
-
-    while len(packets) < num:
-
-        if "1" not in bin_string[ptr:]: break
+    while len(packets) < NUM:
 
         p = Packet()
-
-#        print(bin_string[ptr:])
 
         p.version = int(bin_string[ptr:ptr + 3], 2)
         version_sum += p.version
@@ -137,25 +130,25 @@ def parse_packets_1(num):
         p.length_type = int(bin_string[ptr])
         ptr += 1
 
-#        print(bin_string[ptr:])
-
         if p.length_type == 0:
             num = int(bin_string[ptr:ptr + 15], 2)
             ptr += 15
-            p.data = parse_packets(num)
+            p.data = parse_packets(num, output + "-")
 
         elif p.length_type == 1:
             num = int(bin_string[ptr:ptr + 11], 2)
             ptr += 11
-            p.data = parse_packets_1(num)
+            p.data = parse_packets_1(num, output + "-")
 
         packets.append(p)
 
     return packets
 
 
-def parse_packets(num):
+def parse_packets(num, output=""):
     global ptr, version_sum
+
+#    while num % 4 != 0: num += 1
 
     end = ptr + num
     packets = []
@@ -196,25 +189,24 @@ def parse_packets(num):
         if p.length_type == 0:
             num = int(bin_string[ptr:ptr+15], 2)
             ptr += 15
-            p.data = parse_packets(num)
+            p.data = parse_packets(num, output + "-")
 
         elif p.length_type == 1:
             num = int(bin_string[ptr:ptr+11], 2)
             ptr += 11
-            p.data = parse_packets_1(num)
+            p.data = parse_packets_1(num, output + "-")
 
         packets.append(p)
 
     return packets
 
 #print(bin_string)
-p = parse_packets(len(bin_string))[0]
-print(p)
-print(p.to_math_str())
-print(eval(p.to_math_str()))
+p = parse_packets(len(bin_string), output="+")
+p = p[0]
 
 print("Part 1:", version_sum)
 print("Part 2:", int(p))
+
 
 
 """

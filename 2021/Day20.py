@@ -1,6 +1,6 @@
 from _collections import defaultdict
 
-f = open("Day20.txt").read().split("\n")
+f = open("inputs/Day20.txt").read().split("\n")
 
 algorithm = list(map(int, list(f[0].replace(".", "0").replace("#", "1"))))
 

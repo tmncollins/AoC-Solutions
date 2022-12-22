@@ -1,4 +1,4 @@
-with open("Day22.txt") as f:
+with open("inputs/Day22.txt") as f:
     all_data = f.read().split("\n")
 
 part2 = False

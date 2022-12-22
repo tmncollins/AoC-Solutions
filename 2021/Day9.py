@@ -1,6 +1,6 @@
 from _collections import *
 
-data = open("Day9.txt").read().split("\n")
+data = open("inputs/Day9.txt").read().split("\n")
 
 grid = [list(map(int, list(data[i]))) for i in range(len(data))]
 dic = dict()

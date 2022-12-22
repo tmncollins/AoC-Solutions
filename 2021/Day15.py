@@ -1,4 +1,4 @@
-data = open("Day15.txt").read().split("\n")
+data = open("inputs/Day15.txt").read().split("\n")
 
 cave = []
 for line in data:

@@ -1,5 +1,5 @@
 
-f = open("Day1.txt")
+f = open("inputs/Day1.txt")
 data = list(map(int, f.read().split("\n")))
 
 inc = 0

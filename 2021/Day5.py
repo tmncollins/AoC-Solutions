@@ -4,7 +4,7 @@ n = 1000
 grid1 = [[0 for i in range(n)] for j in range(n)]
 grid2 = [[0 for i in range(n)] for j in range(n)]
 
-with open("Day5.txt", "r") as f:
+with open("inputs/Day5.txt", "r") as f:
     lines = f.readlines()
 
 

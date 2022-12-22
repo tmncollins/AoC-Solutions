@@ -136,7 +136,7 @@ def magnitude(nums):
 
 
 
-data = open("Day18.txt").read().split("\n")
+data = open("inputs/Day18.txt").read().split("\n")
 snailfish = add(process(data[0]), process(data[1]))
 snailfish = reduce(snailfish)
 for i in range(2, len(data)):

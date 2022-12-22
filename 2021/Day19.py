@@ -1,6 +1,6 @@
 from _collections import defaultdict
 
-f = open("Day19.txt").read().split("\n")
+f = open("inputs/Day19.txt").read().split("\n")
 
 beacons = set()
 canSee = defaultdict(set)

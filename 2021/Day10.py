@@ -1,4 +1,4 @@
-data = open("Day10.txt").read().split("\n")
+data = open("inputs/Day10.txt").read().split("\n")
 
 close = {")":3, "]":57, "}":1197, ">":25137}
 opend = {"(":1, "[":2, "{":3, "<":4}

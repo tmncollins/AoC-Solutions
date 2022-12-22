@@ -1,4 +1,4 @@
-f = open("Day3.txt")
+f = open("inputs/Day3.txt")
 data = f.read().split("\n")
 
 bits = [0 for _ in range(len(data[0]))]

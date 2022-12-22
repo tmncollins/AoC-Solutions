@@ -1,7 +1,7 @@
 
 nums = ["abcefg", "cf", "acdeg", "acdfg", "bcdf", "abdfg", "abdefg", "acf", "abcdefg", "abcdfg"]
 alpha = "abcdefg"
-data = open("Day8.txt").read().split("\n")
+data = open("inputs/Day8.txt").read().split("\n")
 
 count = 0
 tot = 0

@@ -1,7 +1,7 @@
 FISH = [0 for i in range(7)]
 toadd = [0, 0]
 
-f = open("Day6.txt")
+f = open("inputs/Day6.txt")
 data = f.read().split("\n")
 data = list(map(int, data[0].split(",")))
 

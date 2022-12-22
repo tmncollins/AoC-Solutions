@@ -45,7 +45,7 @@ class bingo:
                 else: print(" X", end = " ")
             print()
 
-f = open("Day4.txt")
+f = open("inputs/Day4.txt")
 data = f.read().split("\n")
 
 nums = list(map(int, data[0].split(",")))
