@@ -1,9 +1,9 @@
+import time
 
 with open("inputs/Day8.txt") as f:
     all_data = f.read().split("\n")
 
 trees = [list(map(int, list(line))) for line in all_data]
-#print(trees)
 
 
 def get_visible(row):
@@ -42,7 +42,6 @@ for x in range(len(trees[0])):
 #print(visible)
 print("Part 1:", len(visible))
 
-
 def see_dir(x, y, m):
     global trees
     h = trees[y][x]
@@ -76,6 +75,3 @@ for y in range(len(trees)):
             best_loc = (x,y)
 
 print("Part 2:", best_score)
-#print(best_loc)
-
-

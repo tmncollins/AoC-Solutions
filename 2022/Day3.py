@@ -1,4 +1,4 @@
-
+import time
 
 def get_both(rucksack):
     a, b = rucksack[:len(rucksack)//2], rucksack[len(rucksack)//2:]

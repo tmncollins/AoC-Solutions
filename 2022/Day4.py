@@ -1,4 +1,4 @@
-
+import time
 
 with open("inputs/Day4.txt", "r") as f:
     all_data = f.readlines()

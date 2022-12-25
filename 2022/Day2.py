@@ -1,3 +1,4 @@
+import time
 
 def score(a, b):
     s_a, s_b = 0, 0

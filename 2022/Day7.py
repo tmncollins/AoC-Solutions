@@ -1,6 +1,7 @@
+import time
+
 with open("inputs/Day7.txt") as f:
     all_data = f.read().split("\n")
-
 
 class Files:
 
@@ -79,12 +80,9 @@ tot_size = get_size(root)
 print("Part 1:", part1)
 
 req = tot_size - 40000000
-#print(tot_size)
-#print(req)
 dirs = sorted(dirs)
-#print(dirs)
+
 for i in dirs:
     if i >= req:
         print("Part 2:", i)
         break
-

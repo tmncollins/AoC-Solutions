@@ -1,6 +1,6 @@
 from functools import cmp_to_key
 from copy import deepcopy
-
+import time
 
 with open("inputs/Day13.txt") as f:
     all_data = f.read().split("\n")
@@ -88,5 +88,4 @@ except:
     idx_2 = all_packets.index([[[6]]]) + 1
 
 print("Part 2:", idx_1 * idx_2)
-
 

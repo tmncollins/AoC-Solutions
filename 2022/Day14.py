@@ -1,7 +1,7 @@
+import time
 
 with open("inputs/Day14.txt") as f:
     all_data = f.read().split("\n")
-
 
 rock = set()
 sand = set()
@@ -83,7 +83,7 @@ while True:
     if not place_sand():
         break
 
-output(450, 600, 0, bottom)
+#output(450, 600, 0, bottom)
 print("Part 1:", len(sand))
 
 # part 2

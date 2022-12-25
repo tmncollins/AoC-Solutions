@@ -1,3 +1,5 @@
+import time
+
 with open("inputs/Day10.txt") as f:
     all_data = f.read().split("\n")
 
@@ -7,6 +9,9 @@ ans = 0
 target = 20
 img = "#"
 for line in all_data:
+    if cycle == target:
+        ans += target * x
+        target += 40
     if line == "noop":
         cycle += 1
     elif line == "":
@@ -21,7 +26,7 @@ for line in all_data:
         if (cycle) % 40 in [x - 1, x, x + 1]:
             img += "#"
         else:
-            img += "."
+            img += " "
 
         if (cycle+1) % 40 == 0: img += "\n"
 
@@ -30,16 +35,14 @@ for line in all_data:
 
     if cycle-1 == target:
         ans += target * x
-#        print(target, x, target * x)
         target += 40
 
     if (cycle-1) % 40 in [x - 1, x, x + 1]:
         img += "#"
     else:
-        img += "."
+        img += " "
 
     if (cycle) % 40 == 0: img += "\n"
 
-print("Part 1:", ans, cycle)
+print("Part 1:", ans)
 print(img)
-# RZHFGJCB

@@ -1,4 +1,5 @@
 from _collections import *
+import time
 
 alpha = "abcdefghijklmnopqrstuvwxyz"
 conv = dict()
@@ -60,6 +61,6 @@ def bfs(start, targets, part2 = False):
 
     return float("inf")
 
-print("Part 1:", bfs(start, {target}))
 
+print("Part 1:", bfs(start, {target}))
 print("Part 2:", bfs(target, start_a, True))

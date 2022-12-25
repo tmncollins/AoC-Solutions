@@ -1,3 +1,5 @@
+import time
+
 with open("inputs/Day15.txt") as f:
     all_data = f.read().split("\n")
 
@@ -92,7 +94,7 @@ def find_beacons(minx, maxx, miny, maxy):
         if max(r[-1]) > maxx: r[-1] = (min(r[-1]), maxx)
 
         if row % 100000 == 0:
-            print(row)
+            print(row, "out of", maxy)
 
         if len(r) <= 1: continue
 

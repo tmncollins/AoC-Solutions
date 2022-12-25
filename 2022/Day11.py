@@ -1,3 +1,5 @@
+import time
+
 with open("inputs/Day11.txt") as f:
     all_data = f.read().split("\n")
 

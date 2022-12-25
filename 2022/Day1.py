@@ -1,3 +1,4 @@
+import time
 
 all_data = ""
 with open("inputs/Day1.txt", "r") as f:
